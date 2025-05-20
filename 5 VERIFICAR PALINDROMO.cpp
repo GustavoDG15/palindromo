@@ -6,20 +6,11 @@ using namespace std;
 
 bool ehPalindromo(int numero){
     string normal;
-    std::string numString = std::to_string(numero);
+    string numString = to_string(numero);
     normal = numString;
     reverse(numString.begin(), numString.end());
-    if ((normal == numString) && (numero > 9)){
-        cout << "\n!!! Palindromo !!!\n";
-        cout << "Normal : " << normal << endl;
-        cout << "Invertido : " << numString << endl;
-        return true;
-    }else{
-        cout << "\n### nao palindromo ###\n";
-        cout << "Normal : " << normal << endl;
-        cout << "Invertido : " << numString << endl;
-        return false;
-    }
+
+    return (numString == normal);
 }
 int main(){
     int numero;
@@ -27,7 +18,13 @@ int main(){
     cout << "Digite um numero: ";
     cin >> numero;
 
-    ehPalindromo(numero);
+    if (ehPalindromo(numero)){
+        cout << "\n!!! Palindromo !!!\n";
+        cout << numero << endl;
+    }else{
+        cout << "\n### Nao palindromo ###\n";
+        cout << numero << endl;
+    }
 
     return 0;
 }
